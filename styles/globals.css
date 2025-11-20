@@ -1,0 +1,268 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    sans-serif;
+  background: radial-gradient(circle at top, #26040a 0, #050506 55%, #040203 100%);
+  color: #f6e7e2;
+}
+
+/* Layout Grundstruktur */
+
+.hc-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hc-header {
+  padding: 32px 20px 14px;
+  text-align: center;
+}
+
+.hc-header h1 {
+  margin: 0 0 10px;
+  font-size: 2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hc-header p {
+  margin: 0;
+  opacity: 0.8;
+  max-width: 720px;
+  margin-inline: auto;
+  font-size: 0.95rem;
+}
+
+.hc-main {
+  padding: 18px 16px 32px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 960px) {
+  .hc-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+/* Karten / Panels */
+
+.hc-card {
+  background: linear-gradient(135deg, #1a0508, #120203);
+  border-radius: 18px;
+  padding: 18px 18px 20px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hc-input-card {
+  grid-column: 1 / 2;
+}
+
+.hc-summary-card {
+  grid-column: 2 / 3;
+}
+
+.hc-phases-card {
+  grid-column: 1 / 2;
+}
+
+.hc-criteria-card {
+  grid-column: 2 / 3;
+}
+
+@media (max-width: 960px) {
+  .hc-input-card,
+  .hc-summary-card,
+  .hc-phases-card,
+  .hc-criteria-card {
+    grid-column: 1 / 2;
+  }
+}
+
+/* Typografie / Basics */
+
+.hc-label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.hc-textarea {
+  min-height: 140px;
+  resize: vertical;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 12px;
+  background: rgba(8, 2, 3, 0.92);
+  color: #f6e7e2;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.hc-textarea::placeholder {
+  color: rgba(246, 231, 226, 0.45);
+}
+
+.hc-textarea:focus {
+  outline: none;
+  border-color: #b73c46;
+  box-shadow: 0 0 0 1px rgba(183, 60, 70, 0.6);
+}
+
+.hc-button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #b73c46, #f3b493);
+  color: #140305;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.7);
+}
+
+.hc-button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.hc-hint {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* Summary / Phasen / Kriterien */
+
+.hc-summary-card h2,
+.hc-phases-card h2,
+.hc-criteria-card h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.hc-placeholder {
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.hc-summary-block {
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.hc-summary-block h3,
+.hc-summary-block h4 {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+}
+
+.hc-summary-grid {
+  display: flex;
+  gap: 16px;
+  margin: 8px 0 10px;
+  font-size: 0.85rem;
+}
+
+.hc-summary-grid h4 {
+  margin: 0 0 2px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.hc-summary-grid p {
+  margin: 0;
+}
+
+/* Phasenliste */
+
+.hc-phase-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 10px 0 0;
+}
+
+.hc-phase-item {
+  padding: 10px 0 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.hc-phase-item:last-child {
+  border-bottom: none;
+}
+
+.hc-phase-header {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.hc-phase-header h3 {
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+}
+
+.hc-phase-header p {
+  margin: 0;
+  font-size: 0.86rem;
+  opacity: 0.85;
+}
+
+.hc-phase-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 0, #f3b493, #b73c46);
+  color: #140305;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hc-step-list {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 4px 0 0;
+  font-size: 0.87rem;
+}
+
+.hc-step-list li {
+  padding: 2px 0;
+}
+
+/* Footer */
+
+.hc-footer {
+  padding: 10px 16px 16px;
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
